@@ -11,26 +11,20 @@
             padding: 0;
         }
 
-        .praag-app {
+        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
-            width: 100% !important;
-            min-height: 100vh !important;
-            margin: 0 !important;
-            padding: 10px !important;
-            position: relative;
+            min-height: 100vh;
+            padding: 0;
         }
 
         .app-container {
-            max-width: 100% !important;
-            width: 100% !important;
+            max-width: 414px;
             margin: 0 auto;
             background: white;
-            min-height: 90vh;
+            min-height: 100vh;
             position: relative;
             box-shadow: 0 0 30px rgba(0,0,0,0.3);
-            border-radius: 12px;
-            overflow: hidden;
         }
 
         .header {
@@ -255,6 +249,30 @@
             transform: scale(1.05);
         }
 
+        .maps-btn:active {
+            transform: scale(0.95);
+        }
+
+        .weather-widget {
+            background: linear-gradient(135deg, #DAA520, #B8860B);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .weather-temp {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .weather-desc {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
         .tips-section {
             background: #fff3cd;
             border-left: 4px solid #DAA520;
@@ -288,6 +306,101 @@
             content: '•';
             position: absolute;
             left: 0;
+        }
+
+        .fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #DC143C, #B22222);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 350px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .modal h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .modal-btn {
+            background: linear-gradient(135deg, #DC143C, #B22222);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 18px;
+            font-weight: bold;
+            color: #DAA520;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #666;
+            text-transform: uppercase;
         }
 
         .hotel-info {
@@ -346,87 +459,9 @@
             text-align: center;
         }
 
-        .stats-bar {
-            display: flex;
-            justify-content: space-around;
-            padding: 15px;
-            background: #f8f9fa;
-            border-top: 1px solid #e9ecef;
-            margin-top: 20px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 18px;
-            font-weight: bold;
-            color: #DAA520;
-        }
-
-        .stat-label {
-            font-size: 11px;
-            color: #666;
-            text-transform: uppercase;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal.show {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            max-width: 350px;
-            width: 90%;
-            text-align: center;
-        }
-
-        .modal h3 {
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .modal p {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .modal-btn {
-            background: linear-gradient(135deg, #DC143C, #B22222);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            margin: 0 5px;
-        }
-
         @media (max-width: 480px) {
             .app-container {
                 max-width: 100%;
-                margin: 10px;
-            }
-            
-            .praag-app {
-                padding: 10px;
             }
             
             .day-content {
@@ -445,625 +480,699 @@
     </style>
 </head>
 <body>
-    <div class="praag-app">
-        <div class="app-container">
-            <div class="header">
-                <h1>✈️ PRAAG AVONTUUR</h1>
-                <div class="dates">25-27 Augustus 2025 • Familie Trip</div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
+    <div class="app-container">
+        <div class="header">
+            <h1>✈️ PRAAG AVONTUUR</h1>
+            <div class="dates">25-27 Augustus 2025 • Familie Trip</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="showTab('info')">📋 INFO</button>
+            <button class="tab-btn" onclick="showTab('day1')">🏨 VRI</button>
+            <button class="tab-btn" onclick="showTab('day2')">🏰 ZAT</button>
+            <button class="tab-btn" onclick="showTab('day3')">🚋 ZON</button>
+            <button class="tab-btn" onclick="showTab('flights')">✈️ VLUCHT</button>
+        </div>
+
+        <!-- INFO TAB -->
+        <div class="tab-content active" id="info">
+            <div class="day-content">
+                <div class="hotel-info">
+                    <div class="hotel-name">🏨 Hotel MeetMe23</div>
+                    <div class="hotel-address">📍 Washingtonova 23, Prague</div>
+                    <div class="hotel-phone">📞 +420 601 023 023</div>
                 </div>
-            </div>
 
-            <div class="tab-nav">
-                <button class="tab-btn active" onclick="showTab('info')">📋 INFO</button>
-                <button class="tab-btn" onclick="showTab('day1')">🏨 VRI</button>
-                <button class="tab-btn" onclick="showTab('day2')">🏰 ZAT</button>
-                <button class="tab-btn" onclick="showTab('day3')">🚋 ZON</button>
-                <button class="tab-btn" onclick="showTab('flights')">✈️ VLUCHT</button>
-            </div>
-
-            <!-- INFO TAB -->
-            <div class="tab-content active" id="info">
-                <div class="day-content">
-                    <div class="hotel-info">
-                        <div class="hotel-name">🏨 Hotel MeetMe23</div>
-                        <div class="hotel-address">📍 Washingtonova 23, Prague</div>
-                        <div class="hotel-phone">📞 +420 601 023 023</div>
-                    </div>
-
-                    <div class="tips-section">
-                        <div class="tips-title">Instagram Hotspots</div>
-                        <div class="tip-item">Charles Bridge bij zonsopgang (7:00-8:00)</div>
-                        <div class="tip-item">Teresa U Prince rooftop - beste uitzicht</div>
-                        <div class="tip-item">John Lennon Wall - street art</div>
-                        <div class="tip-item">Museum of Senses - optische illusies</div>
-                        <div class="tip-item">Výtopna treintjes - TikTok materiaal</div>
-                    </div>
-
-                    <div class="tips-section">
-                        <div class="tips-title">Shopping Hotspots</div>
-                        <div class="tip-item">Na Příkopě - hoofdwinkelstraat</div>
-                        <div class="tip-item">Palladium - H&M, Zara, Pull&Bear</div>
-                        <div class="tip-item">Pařížská Street - luxe merken</div>
-                        <div class="tip-item">Quadrio - airco & restaurants</div>
-                        <div class="tip-item">Kotva - vintage & lokaal design</div>
-                    </div>
-
-                    <div class="tips-section">
-                        <div class="tips-title">Tiener Tips</div>
-                        <div class="tip-item">Download Mapy.cz app (offline kaarten)</div>
-                        <div class="tip-item">Powerbank(s) meenemen voor foto's</div>
-                        <div class="tip-item">Comfortabele schoenen (kasseien!)</div>
-                        <div class="tip-item">25 CZK ≈ €1 - shoppen goedkoper dan België</div>
-                        <div class="tip-item">WiFi gratis overal beschikbaar</div>
-                    </div>
-
-                    <div class="tips-section">
-                        <div class="tips-title">Essential Apps</div>
-                        <div class="tip-item">Mapy.cz - offline navigatie</div>
-                        <div class="tip-item">Bolt/Uber - transport</div>
-                        <div class="tip-item">Google Translate - camera functie</div>
-                        <div class="tip-item">Instagram/TikTok - content creation</div>
-                    </div>
-
-                    <div class="tips-section">
-                        <div class="tips-title">Restaurants - Tiener Approved</div>
-                        <div class="tip-item">Lokál - modern Tsjechisch, Instagram-vriendelijk</div>
-                        <div class="tip-item">Výtopna Railway - eten via treintjes (TikTok!)</div>
-                        <div class="tip-item">Café Savoy - ontbijt/lunch vintage vibes</div>
-                        <div class="tip-item">Starbucks - WiFi pauze, bekende smaak</div>
-                    </div>
-
-                    <div class="tips-section">
-                        <div class="tips-title">Transport & Geld</div>
-                        <div class="tip-item">Alles te voet (max 15 min)</div>
-                        <div class="tip-item">Tram 22 - beste stadstour (120 CZK dagticket)</div>
-                        <div class="tip-item">Pinnen makkelijk, check kosten vooraf</div>
-                        <div class="tip-item">Wissel bij bank/hotel, niet op straat</div>
-                    </div>
-
-                    <div class="tips-section">
-                        <div class="tips-title">Noodnummers</div>
-                        <div class="tip-item">Hotel: +420 601 023 023</div>
-                        <div class="tip-item">EU Noodlijn: 112</div>
-                        <div class="tip-item">Belgische Ambassade: +420 237 016 100</div>
-                    </div>
-
-                    <div class="stats-bar">
-                        <div class="stat-item">
-                            <div class="stat-number" id="totalActivities">0</div>
-                            <div class="stat-label">Activiteiten</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" id="completedActivities">0</div>
-                            <div class="stat-label">Voltooid</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">3</div>
-                            <div class="stat-label">Dagen</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">25-27</div>
-                            <div class="stat-label">Augustus</div>
-                        </div>
-                    </div>
+                <div class="weather-widget">
+                    <div class="weather-temp">15°C - 25°C</div>
+                    <div class="weather-desc">☀️ Zonnig met kans op bui • Neem paraplu mee!</div>
                 </div>
-            </div>
 
-            <!-- DAY 1 - VRIJDAG -->
-            <div class="tab-content" id="day1">
-                <div class="day-content">
-                    <div class="time-slot">
-                        <div class="time-header">
-                            <span class="time-icon">🌇</span>
-                            <span class="time-title">NAMIDDAG (14:00-18:00)</span>
-                        </div>
-                        <div class="activity-list">
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Inchecken Hotel MeetMe23</div>
-                                    <div class="activity-desc">Opfrissen en oriënteren • Tech hotel met 3D printer!</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">5 min</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Washingtonova%201568/23%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="tips-section">
+                    <div class="tips-title">Instagram Hotspots</div>
+                    <div class="tip-item">Charles Bridge bij zonsopgang (7:00-8:00)</div>
+                    <div class="tip-item">Teresa U Prince rooftop - beste uitzicht</div>
+                    <div class="tip-item">John Lennon Wall - street art</div>
+                    <div class="tip-item">Museum of Senses - optische illusies</div>
+                    <div class="tip-item">Výtopna treintjes - TikTok materiaal</div>
+                </div>
 
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Na Příkopě Winkelstraat</div>
-                                    <div class="activity-desc">Hoofdwinkelstraat • Alle grote merken • Eerste impressie</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">8 min</span>
-                                        <span class="tag shop">Shopping</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Na%20P%C5%99%C3%ADkop%C4%9B%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="tips-section">
+                    <div class="tips-title">Shopping Hotspots</div>
+                    <div class="tip-item">Na Příkopě - hoofdwinkelstraat</div>
+                    <div class="tip-item">Palladium - H&M, Zara, Pull&Bear</div>
+                    <div class="tip-item">Pařížská Street - luxe merken</div>
+                    <div class="tip-item">Quadrio - airco & restaurants</div>
+                    <div class="tip-item">Kotva - vintage & lokaal design</div>
+                </div>
 
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">The Playground (ex-Hamleys)</div>
-                                    <div class="activity-desc">4500m² fun! Carrousel, glijbaan, VR-games, vlindertuin</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">8 min</span>
-                                        <span class="tag fun">Fun</span>
-                                        <span class="tag instagram">Foto's</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Na%20P%C5%99%C3%ADkop%C4%9B%2014%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="tips-section">
+                    <div class="tips-title">Tiener Tips</div>
+                    <div class="tip-item">Download Mapy.cz app (offline kaarten)</div>
+                    <div class="tip-item">Powerbank(s) meenemen voor foto's</div>
+                    <div class="tip-item">Comfortabele schoenen (kasseien!)</div>
+                    <div class="tip-item">25 CZK ≈ €1 - shoppen goedkoper dan België</div>
+                    <div class="tip-item">WiFi gratis overal beschikbaar</div>
+                </div>
 
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Trdelník proeven</div>
-                                    <div class="activity-desc">Zoete lekkernij • Warm & vers gebakken • Overal verkrijgbaar</div>
-                                    <div class="activity-tags">
-                                        <span class="tag food">Snack</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Trdelnik%20Old%20Town%20Square%20Prague" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="tips-section">
+                    <div class="tips-title">Essential Apps</div>
+                    <div class="tip-item">Mapy.cz - offline navigatie</div>
+                    <div class="tip-item">Bolt/Uber - transport</div>
+                    <div class="tip-item">Google Translate - camera functie</div>
+                    <div class="tip-item">Instagram/TikTok - content creation</div>
+                </div>
+
+                <div class="tips-section">
+                    <div class="tips-title">Restaurants - Tiener Approved</div>
+                    <div class="tip-item">Lokál - modern Tsjechisch, Instagram-vriendelijk</div>
+                    <div class="tip-item">Výtopna Railway - eten via treintjes (TikTok!)</div>
+                    <div class="tip-item">Café Savoy - ontbijt/lunch vintage vibes</div>
+                    <div class="tip-item">Starbucks - WiFi pauze, bekende smaak</div>
+                </div>
+
+                <div class="tips-section">
+                    <div class="tips-title">Transport & Geld</div>
+                    <div class="tip-item">Alles te voet (max 15 min)</div>
+                    <div class="tip-item">Tram 22 - beste stadstour (120 CZK dagticket)</div>
+                    <div class="tip-item">Pinnen makkelijk, check kosten vooraf</div>
+                    <div class="tip-item">Wissel bij bank/hotel, niet op straat</div>
+                </div>
+
+                <div class="tips-section">
+                    <div class="tips-title">Noodnummers</div>
+                    <div class="tip-item">Hotel: +420 601 023 023</div>
+                    <div class="tip-item">EU Noodlijn: 112</div>
+                    <div class="tip-item">Belgische Ambassade: +420 237 016 100</div>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalActivities">0</div>
+                        <div class="stat-label">Activiteiten</div>
                     </div>
-
-                    <div class="time-slot">
-                        <div class="time-header">
-                            <span class="time-icon">🌆</span>
-                            <span class="time-title">AVOND (18:00-22:00)</span>
-                        </div>
-                        <div class="activity-list">
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Diner bij Lokál</div>
-                                    <div class="activity-desc">Moderne Tsjechische keuken • Tiener-vriendelijk</div>
-                                    <div class="activity-tags">
-                                        <span class="tag food">Diner</span>
-                                        <span class="tag culture">Lokaal</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Dlouh%C3%A1%2033%2C%20110%2000%20Star%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Wenceslasplein verkennen</div>
-                                    <div class="activity-desc">Voor je hoteldeur! Winkels tot 21u, straatartiesten</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">2 min</span>
-                                        <span class="tag shop">Shopping</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=V%C3%A1clavsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Astronomisch Uurwerk</div>
-                                    <div class="activity-desc">Elk uur een show • Magische avondfoto's</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">10 min</span>
-                                        <span class="tag culture">Cultuur</span>
-                                        <span class="tag instagram">Instagram</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Starom%C4%9Bstsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%201%2C%20110%2000%20Josefov%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="completedActivities">0</div>
+                        <div class="stat-label">Voltooid</div>
                     </div>
-
-                    <div class="tips-section">
-                        <div class="tips-title">Dag 1 Tips</div>
-                        <div class="tip-item">Rustig aan doen - jetlag voorkomen</div>
-                        <div class="tip-item">The Playground Card kopen voor kortingen</div>
-                        <div class="tip-item">Hotel WiFi code vragen</div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Dagen</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25-27</div>
+                        <div class="stat-label">Augustus</div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- DAY 2 - ZATERDAG -->
-            <div class="tab-content" id="day2">
-                <div class="day-content">
-                    <div class="time-slot">
-                        <div class="time-header">
-                            <span class="time-icon">🌄</span>
-                            <span class="time-title">VROEGE OCHTEND (07:00-11:00)</span>
+        <!-- DAY 1 -->
+        <div class="tab-content" id="day1">
+            <div class="day-content">
+                <div class="weather-widget">
+                    <div class="weather-temp">📅 VRIJDAG 25 AUGUSTUS</div>
+                    <div class="weather-desc">Aankomstdag - Rustig starten & verkennen</div>
+                </div>
+
+                <div class="time-slot">
+                    <div class="time-header">
+                        <span class="time-icon">🌇</span>
+                        <span class="time-title">NAMIDDAG (14:00-18:00)</span>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Inchecken Hotel MeetMe23</div>
+                                <div class="activity-desc">Opfrissen en oriënteren • Tech hotel met 3D printer!</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">5 min</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Washingtonova%201568/23%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="activity-list">
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Charles Bridge (Karelsbrug)</div>
-                                    <div class="activity-desc">07:00 start! Beste foto's zonder massa • Instagram goud</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">15 min</span>
-                                        <span class="tag instagram">Must Photo</span>
-                                        <span class="tag culture">Iconisch</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Karl%C5%AFv%20most%2C%20110%2000%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Na Příkopě Winkelstraat</div>
+                                <div class="activity-desc">Hoofdwinkelstraat • Alle grote merken • Eerste impressie</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">8 min</span>
+                                    <span class="tag shop">Shopping</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Na%20P%C5%99%C3%ADkop%C4%9B%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Praagse Burcht & Sint-Vitus</div>
-                                    <div class="activity-desc">Grootste burcht ter wereld • Tickets online kopen!</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">Via brug</span>
-                                        <span class="tag culture">Must-see</span>
-                                        <span class="tag instagram">Uitzicht</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Hrad%C4%8Dany%2C%20119%2008%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">The Playground (ex-Hamleys)</div>
+                                <div class="activity-desc">4500m² fun! Carrousel, glijbaan, VR-games, vlindertuin</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">8 min</span>
+                                    <span class="tag fun">Fun</span>
+                                    <span class="tag instagram">Foto's</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Na%20P%C5%99%C3%ADkop%C4%9B%2014%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Lunch met uitzicht</div>
-                                    <div class="activity-desc">Villa Richter of Café Savoy • Bijkomen van ochtend</div>
-                                    <div class="activity-tags">
-                                        <span class="tag food">Lunch</span>
-                                        <span class="tag instagram">View</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Villa%20Richter%20Prague%20OR%20Caf%C3%A9%20Savoy%20Prague" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Trdelník proeven</div>
+                                <div class="activity-desc">Zoete lekkernij • Warm & vers gebakken • Overal verkrijgbaar</div>
+                                <div class="activity-tags">
+                                    <span class="tag food">Snack</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Trdelnik%20Old%20Town%20Square%20Prague" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="time-slot">
-                        <div class="time-header">
-                            <span class="time-icon">🛍️</span>
-                            <span class="time-title">MIDDAG (11:00-17:00)</span>
+                <div class="time-slot">
+                    <div class="time-header">
+                        <span class="time-icon">🌆</span>
+                        <span class="time-title">AVOND (18:00-22:00)</span>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Diner bij Lokál</div>
+                                <div class="activity-desc">Moderne Tsjechische keuken • Tiener-vriendelijk</div>
+                                <div class="activity-tags">
+                                    <span class="tag food">Diner</span>
+                                    <span class="tag culture">Lokaal</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Dlouh%C3%A1%2033%2C%20110%2000%20Star%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="activity-list">
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Teresa U Prince Rooftop</div>
-                                    <div class="activity-desc">Instagram hotspot! Beste uitzicht Astronomische Klok + Týnkerk</div>
-                                    <div class="activity-tags">
-                                        <span class="tag instagram">Top Spot</span>
-                                        <span class="tag culture">Uitzicht</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Hotel%20U%20Prince%20Prague%20Terasa" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Wenceslasplein verkennen</div>
+                                <div class="activity-desc">Voor je hoteldeur! Winkels tot 21u, straatartiesten</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">2 min</span>
+                                    <span class="tag shop">Shopping</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=V%C3%A1clavsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps  
+                                    </a>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">John Lennon Wall</div>
-                                    <div class="activity-desc">Street art & geschiedenis • Perfect voor tieners!</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">15 min</span>
-                                        <span class="tag instagram">Street Art</span>
-                                        <span class="tag culture">Verhaal</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Velkop%C5%99evorsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%2C%20118%2000%20Mal%C3%A1%20Strana%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">The Playground (terug)</div>
-                                    <div class="activity-desc">Papilonia Butterfly House • 4 VR Games • Arcade</div>
-                                    <div class="activity-tags">
-                                        <span class="tag fun">VR Games</span>
-                                        <span class="tag instagram">Vlinders</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Na%20P%C5%99%C3%ADkop%C4%9B%2014%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Palladium Shopping</div>
-                                    <div class="activity-desc">H&M, Zara, Pull&Bear • Foodcourt voor pauze</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">10 min</span>
-                                        <span class="tag shop">Merken</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=N%C3%A1m%C4%9Bst%C3%AD%20Republiky%201078/1%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Pařížská Street</div>
-                                    <div class="activity-desc">Luxe shopping: Dior, Hermès, Chanel • Window shopping</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">12 min</span>
-                                        <span class="tag shop">Luxe</span>
-                                        <span class="tag instagram">Chic</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Pa%C5%99%C3%AD%C5%BEsk%C3%A1%2C%20110%2000%20Josefov%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Astronomisch Uurwerk</div>
+                                <div class="activity-desc">Elk uur een show • Magische avondfoto's</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">10 min</span>
+                                    <span class="tag culture">Cultuur</span>
+                                    <span class="tag instagram">Instagram</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Starom%C4%9Bstsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%201%2C%20110%2000%20Josefov%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="time-slot">
-                        <div class="time-header">
-                            <span class="time-icon">🌃</span>
-                            <span class="time-title">AVOND (17:00-21:00)</span>
+                <div class="tips-section">
+                    <div class="tips-title">Dag 1 Tips</div>
+                    <div class="tip-item">Rustig aan doen - jetlag voorkomen</div>
+                    <div class="tip-item">The Playground Card kopen voor kortingen</div>
+                    <div class="tip-item">Hotel WiFi code vragen</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div class="tab-content" id="day2">
+            <div class="day-content">
+                <div class="weather-widget">
+                    <div class="weather-temp">📅 ZATERDAG 26 AUGUSTUS</div>
+                    <div class="weather-desc">Volledige dag - Sightseeing & Instagram hotspots</div>
+                </div>
+
+                <div class="time-slot">
+                    <div class="time-header">
+                        <span class="time-icon">🌄</span>
+                        <span class="time-title">VROEGE OCHTEND (07:00-11:00)</span>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Charles Bridge (Karelsbrug)</div>
+                                <div class="activity-desc">07:00 start! Beste foto's zonder massa • Instagram goud</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">15 min</span>
+                                    <span class="tag instagram">Must Photo</span>
+                                    <span class="tag culture">Iconisch</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Karl%C5%AFv%20most%2C%20110%2000%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="activity-list">
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Joodse Wijk (Josefov)</div>
-                                    <div class="activity-desc">Historisch & indrukwekkend • Rustig in avond</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">15 min</span>
-                                        <span class="tag culture">Geschiedenis</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Josefov%2C%20110%2000%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Praagse Burcht & Sint-Vitus</div>
+                                <div class="activity-desc">Grootste burcht ter wereld • Tickets online kopen!</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">Via brug</span>
+                                    <span class="tag culture">Must-see</span>
+                                    <span class="tag instagram">Uitzicht</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Hrad%C4%8Dany%2C%20119%2008%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Výtopna Railway Restaurant</div>
-                                    <div class="activity-desc">Eten via mini-treinen! Perfect voor TikTok content</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">8 min</span>
-                                        <span class="tag food">Uniek</span>
-                                        <span class="tag instagram">TikTok</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=V%C3%A1clavsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%20802/56%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Museum of Senses</div>
-                                    <div class="activity-desc">50+ installaties • Bed van spijkers • Instagram paradise</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">5 min</span>
-                                        <span class="tag fun">Interactive</span>
-                                        <span class="tag instagram">Illusions</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Jind%C5%99i%C5%A1sk%C3%A1%20939/20%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Lunch met uitzicht</div>
+                                <div class="activity-desc">Villa Richter of Café Savoy • Bijkomen van ochtend</div>
+                                <div class="activity-tags">
+                                    <span class="tag food">Lunch</span>
+                                    <span class="tag instagram">View</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Villa%20Richter%20Prague%20OR%20Caf%C3%A9%20Savoy%20Prague" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="tips-section">
-                        <div class="tips-title">Dag 2 Tips</div>
-                        <div class="tip-item">Charles Bridge voor 7:30 voor beste foto's</div>
-                        <div class="tip-item">Burcht tickets online - vermijd wachtrijen</div>
-                        <div class="tip-item">John Lennon Wall = must voor tieners!</div>
-                        <div class="tip-item">Powerbank volladen voor alle foto's</div>
+                <div class="time-slot">
+                    <div class="time-header">
+                        <span class="time-icon">🛍️</span>
+                        <span class="time-title">MIDDAG (11:00-17:00)</span>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Teresa U Prince Rooftop</div>
+                                <div class="activity-desc">Instagram hotspot! Beste uitzicht Astronomische Klok + Týnkerk</div>
+                                <div class="activity-tags">
+                                    <span class="tag instagram">Top Spot</span>
+                                    <span class="tag culture">Uitzicht</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Hotel%20U%20Prince%20Prague%20Terasa" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">John Lennon Wall</div>
+                                <div class="activity-desc">Street art & geschiedenis • Perfect voor tieners!</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">15 min</span>
+                                    <span class="tag instagram">Street Art</span>
+                                    <span class="tag culture">Verhaal</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Velkop%C5%99evorsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%2C%20118%2000%20Mal%C3%A1%20Strana%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">The Playground (terug)</div>
+                                <div class="activity-desc">Papilonia Butterfly House • 4 VR Games • Arcade</div>
+                                <div class="activity-tags">
+                                    <span class="tag fun">VR Games</span>
+                                    <span class="tag instagram">Vlinders</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Na%20P%C5%99%C3%ADkop%C4%9B%2014%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Palladium Shopping</div>
+                                <div class="activity-desc">H&M, Zara, Pull&Bear • Foodcourt voor pauze</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">10 min</span>
+                                    <span class="tag shop">Merken</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=N%C3%A1m%C4%9Bst%C3%AD%20Republiky%201078/1%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Pařížská Street</div>
+                                <div class="activity-desc">Luxe shopping: Dior, Hermès, Chanel • Window shopping</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">12 min</span>
+                                    <span class="tag shop">Luxe</span>
+                                    <span class="tag instagram">Chic</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Pa%C5%99%C3%AD%C5%BEsk%C3%A1%2C%20110%2000%20Josefov%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-slot">
+                    <div class="time-header">
+                        <span class="time-icon">🌃</span>
+                        <span class="time-title">AVOND (17:00-21:00)</span>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Joodse Wijk (Josefov)</div>
+                                <div class="activity-desc">Historisch & indrukwekkend • Rustig in avond</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">15 min</span>
+                                    <span class="tag culture">Geschiedenis</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Josefov%2C%20110%2000%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Výtopna Railway Restaurant</div>
+                                <div class="activity-desc">Eten via mini-treinen! Perfect voor TikTok content</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">8 min</span>
+                                    <span class="tag food">Uniek</span>
+                                    <span class="tag instagram">TikTok</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=V%C3%A1clavsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%20802/56%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Museum of Senses</div>
+                                <div class="activity-desc">50+ installaties • Bed van spijkers • Instagram paradise</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">5 min</span>
+                                    <span class="tag fun">Interactive</span>
+                                    <span class="tag instagram">Illusions</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Jind%C5%99i%C5%A1sk%C3%A1%20939/20%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tips-section">
+                    <div class="tips-title">Dag 2 Tips</div>
+                    <div class="tip-item">Charles Bridge voor 7:30 voor beste foto's</div>
+                    <div class="tip-item">Burcht tickets online - vermijd wachtrijen</div>
+                    <div class="tip-item">John Lennon Wall = must voor tieners!</div>
+                    <div class="tip-item">Powerbank volladen voor alle foto's</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 3 -->
+        <div class="tab-content" id="day3">
+            <div class="day-content">
+                <div class="weather-widget">
+                    <div class="weather-temp">📅 ZONDAG 27 AUGUSTUS</div>
+                    <div class="weather-desc">Laatste dag - Relax, cultuur & laatste souvenirs</div>
+                </div>
+
+                <div class="time-slot">
+                    <div class="time-header">
+                        <span class="time-icon">☀️</span>
+                        <span class="time-title">OCHTEND (09:00-13:00)</span>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Tram 22 Stadstour</div>
+                                <div class="activity-desc">Via Burcht, Petřín Hill & Mala Strana • 45 min overzicht</div>
+                                <div class="activity-tags">
+                                    <span class="tag culture">Panorama</span>
+                                    <span class="tag walk">Relaxed</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=N%C3%A1rodn%C3%AD%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">David Černý Art Hunt</div>
+                                <div class="activity-desc">Gele Pinguïns (Kampa Park) • Rotating Kafka Head (Quadrio)</div>
+                                <div class="activity-tags">
+                                    <span class="tag culture">Modern Art</span>
+                                    <span class="tag instagram">Uniek</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Kampa%20Island%2C%20118%2000%20Mal%C3%A1%20Strana%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Kotva Warenhuis</div>
+                                <div class="activity-desc">Vintage & lokaal design • Speelgoedafdeling</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">10 min</span>
+                                    <span class="tag shop">Lokaal</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=N%C3%A1m%C4%9Bst%C3%AD%20Republiky%208%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-slot">
+                    <div class="time-header">
+                        <span class="time-icon">🛍️</span>
+                        <span class="time-title">MIDDAG (13:00-17:00)</span>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Quadrio Shopping</div>
+                                <div class="activity-desc">Airco • Zara • Restaurants • Kafka Head buiten</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">5 min</span>
+                                    <span class="tag shop">Airco</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Sp%C3%A1len%C3%A1%202121/22%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Nationaal Museum</div>
+                                <div class="activity-desc">150 CZK • Kort maar indrukwekkend • Wenceslasplein</div>
+                                <div class="activity-tags">
+                                    <span class="tag culture">Museum</span>
+                                    <span class="tag walk">2 min</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=V%C3%A1clavsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%2068%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Starbucks Pauze</div>
+                                <div class="activity-desc">WiFi • Bekende smaak • Plannen voor avond</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">2 min</span>
+                                    <span class="tag food">Coffee</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=V%C3%A1clavsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%201%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="time-slot">
+                    <div class="time-header">
+                        <span class="time-icon">🌙</span>
+                        <span class="time-title">AVOND (17:00-21:00)</span>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Check-out voorbereiden</div>
+                                <div class="activity-desc">Koffers pakken • Hotel rekening checken</div>
+                                <div class="activity-tags">
+                                    <span class="tag walk">Hotel</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Washingtonova%201568/23%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Laatste souvenirs</div>
+                                <div class="activity-desc">Na Příkopě • Havelské Markt • Geschenken familie</div>
+                                <div class="activity-tags">
+                                    <span class="tag shop">Souvenirs</span>
+                                    <span class="tag walk">Centrum</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Havelsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%2C%20110%2000%20Star%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
+                            <div class="activity-content">
+                                <div class="activity-name">Afscheidsdiner</div>
+                                <div class="activity-desc">Terug naar favoriete restaurant • Herinneringen delen</div>
+                                <div class="activity-tags">
+                                    <span class="tag food">Speciaal</span>
+                                    <span class="tag culture">Memories</span>
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Restaurants%20Wenceslas%20Square%20Prague" class="maps-btn" target="_blank">
+                                        📍 Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tips-section">
+                    <div class="tips-title">Dag 3 Tips</div>
+                    <div class="tip-item">Rustig aan - koffer moet nog dicht!</div>
+                    <div class="tip-item">Laatste foto's maken op favoriete plekken</div>
+                    <div class="tip-item">Check vliegtijd (28 aug, 11:50)</div>
+                    <div class="tip-item">Taxi boeken voor 08:00 (28 aug)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FLIGHTS TAB -->
+        <div class="tab-content" id="flights">
+            <div class="day-content">
+                <div class="flight-info">
+                    <div class="flight-header">🛫 HEENVLUCHT</div>
+                    <div class="flight-details">📅 Maandag 25 Augustus 2025</div>
+                    <div class="flight-details">✈️ Brussels Airlines SN 2809</div>
+                    <div class="flight-details">🕘 09:30 Brussel → 11:00 Praag</div>
+                    <div class="flight-reference">Boekingsreferentie: 8QYMRW</div>
+                </div>
+
+                <div class="flight-info" style="background: linear-gradient(135deg, #B8860B, #DAA520);">
+                    <div class="flight-header">🛬 TERUGVLUCHT</div>
+                    <div class="flight-details">📅 Donderdag 28 Augustus 2025</div>
+                    <div class="flight-details">✈️ Brussels Airlines SN 2810</div>
+                    <div class="flight-details">🕚 11:50 Praag → 13:20 Brussel</div>
+                    <div class="flight-reference">Totaalprijs: €596,55</div>
+                </div>
+
+                <div class="tips-section">
+                    <div class="tips-title">Vertrek Tips</div>
+                    <div class="tip-item">Heenvlucht: Thuis vertrekken om 05:45</div>
+                    <div class="tip-item">Terug: Hotel vertrek om 08:00</div>
+                    <div class="tip-item">Alleen handbagage (8kg/46cm)</div>
+                    <div class="tip-item">Check-in online 24u vooraf</div>
+                    <div class="tip-item">Identiteitskaart meenemen</div>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-number">1h30</div>
+                        <div class="stat-label">Vliegtijd</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8kg</div>
+                        <div class="stat-label">Handbagage</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Passagiers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">€597</div>
+                        <div class="stat-label">Totaal</div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- DAY 3 - ZONDAG -->
-            <div class="tab-content" id="day3">
-                <div class="day-content">
-                    <div class="time-slot">
-                        <div class="time-header">
-                            <span class="time-icon">☀️</span>
-                            <span class="time-title">OCHTEND (09:00-13:00)</span>
-                        </div>
-                        <div class="activity-list">
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Tram 22 Stadstour</div>
-                                    <div class="activity-desc">Via Burcht, Petřín Hill & Mala Strana • 45 min overzicht</div>
-                                    <div class="activity-tags">
-                                        <span class="tag culture">Panorama</span>
-                                        <span class="tag walk">Relaxed</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=N%C3%A1rodn%C3%AD%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
+        <button class="fab" onclick="showModal()">🎯</button>
 
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">David Černý Art Hunt</div>
-                                    <div class="activity-desc">Gele Pinguïns (Kampa Park) • Rotating Kafka Head (Quadrio)</div>
-                                    <div class="activity-tags">
-                                        <span class="tag culture">Modern Art</span>
-                                        <span class="tag instagram">Uniek</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Kampa%20Island%2C%20118%2000%20Mal%C3%A1%20Strana%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Kotva Warenhuis</div>
-                                    <div class="activity-desc">Vintage & lokaal design • Speelgoedafdeling</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">10 min</span>
-                                        <span class="tag shop">Lokaal</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=N%C3%A1m%C4%9Bst%C3%AD%20Republiky%208%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="time-slot">
-                        <div class="time-header">
-                            <span class="time-icon">🛍️</span>
-                            <span class="time-title">MIDDAG (13:00-17:00)</span>
-                        </div>
-                        <div class="activity-list">
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Quadrio Shopping</div>
-                                    <div class="activity-desc">Airco • Zara • Restaurants • Kafka Head buiten</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">5 min</span>
-                                        <span class="tag shop">Airco</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Sp%C3%A1len%C3%A1%202121/22%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Nationaal Museum</div>
-                                    <div class="activity-desc">150 CZK • Kort maar indrukwekkend • Wenceslasplein</div>
-                                    <div class="activity-tags">
-                                        <span class="tag culture">Museum</span>
-                                        <span class="tag walk">2 min</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=V%C3%A1clavsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%2068%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Starbucks Pauze</div>
-                                    <div class="activity-desc">WiFi • Bekende smaak • Plannen voor avond</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">2 min</span>
-                                        <span class="tag food">Coffee</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=V%C3%A1clavsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%201%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="time-slot">
-                        <div class="time-header">
-                            <span class="time-icon">🌙</span>
-                            <span class="time-title">AVOND (17:00-21:00)</span>
-                        </div>
-                        <div class="activity-list">
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Check-out voorbereiden</div>
-                                    <div class="activity-desc">Koffers pakken • Hotel rekening checken</div>
-                                    <div class="activity-tags">
-                                        <span class="tag walk">Hotel</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Washingtonova%201568/23%2C%20110%2000%20Nov%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Laatste souvenirs</div>
-                                    <div class="activity-desc">Na Příkopě • Havelské Markt • Geschenken familie</div>
-                                    <div class="activity-tags">
-                                        <span class="tag shop">Souvenirs</span>
-                                        <span class="tag walk">Centrum</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Havelsk%C3%A9%20n%C3%A1m%C4%9Bst%C3%AD%2C%20110%2000%20Star%C3%A9%20M%C4%9Bsto%2C%20Prague%201" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="activity-item">
-                                <div class="activity-checkbox" onclick="toggleActivity(this)"></div>
-                                <div class="activity-content">
-                                    <div class="activity-name">Afscheidsdiner</div>
-                                    <div class="activity-desc">Terug naar favoriete restaurant • Herinneringen delen</div>
-                                    <div class="activity-tags">
-                                        <span class="tag food">Speciaal</span>
-                                        <span class="tag culture">Memories</span>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Restaurants%20Wenceslas%20Square%20Prague" class="maps-btn" target="_blank">📍 Maps</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tips-section">
-                        <div class="tips-title">Dag 3 Tips</div>
-                        <div class="tip-item">Rustig aan - koffer moet nog dicht!</div>
-                        <div class="tip-item">Laatste foto's maken op favoriete plekken</div>
-                        <div class="tip-item">Check vliegtijd (28 aug, 11:50)</div>
-                        <div class="tip-item">Taxi boeken voor 08:00 (28 aug)</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FLIGHTS TAB -->
-            <div class="tab-content" id="flights">
-                <div class="day-content">
-                    <div class="flight-info">
-                        <div class="flight-header">🛫 HEENVLUCHT</div>
-                        <div class="flight-details">📅 Maandag 25 Augustus 2025</div>
-                        <div class="flight-details">✈️ Brussels Airlines SN 2809</div>
-                        <div class="flight-details">🕘 09:30 Brussel → 11:00 Praag</div>
-                        <div class="flight-reference">Boekingsreferentie: 8QYMRW</div>
-                    </div>
-
-                    <div class="flight-info" style="background: linear-gradient(135deg, #B8860B, #DAA520);">
-                        <div class="flight-header">🛬 TERUGVLUCHT</div>
-                        <div class="flight-details">📅 Donderdag 28 Augustus 2025</div>
-                        <div class="flight-details">✈️ Brussels Airlines SN 2810</div>
-                        <div class="flight-details">🕚 11:50 Praag → 13:20 Brussel</div>
-                        <div class="flight-reference">Totaalprijs: €596,55</div>
-                    </div>
-
-                    <div class="tips-section">
-                        <div class="tips-title">Vertrek Tips</div>
-                        <div class="tip-item">Heenvlucht: Thuis vertrekken om 05:45</div>
-                        <div class="tip-item">Terug: Hotel vertrek om 08:00</div>
-                        <div class="tip-item">Alleen handbagage (8kg/46cm)</div>
-                        <div class="tip-item">Check-in online 24u vooraf</div>
-                        <div class="tip-item">Identiteitskaart meenemen</div>
-                    </div>
-
-                    <div class="stats-bar">
-                        <div class="stat-item">
-                            <div class="stat-number">1h30</div>
-                            <div class="stat-label">Vliegtijd</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">8kg</div>
-                            <div class="stat-label">Handbagage</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">3</div>
-                            <div class="stat-label">Passagiers</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">€597</div>
-                            <div class="stat-label">Totaal</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal" id="congratsModal">
-                <div class="modal-content">
-                    <h3>🎉 Gefeliciteerd!</h3>
-                    <p>Je hebt alle activiteiten voltooid! Tijd voor een welverdiende pauze en misschien een Trdelník! 🍩</p>
-                    <button class="modal-btn" onclick="hideModal()">Awesome!</button>
-                </div>
+        <div class="modal" id="congratsModal">
+            <div class="modal-content">
+                <h3>🎉 Gefeliciteerd!</h3>
+                <p>Je hebt alle activiteiten voltooid! Tijd voor een welverdiende pauze en misschien een Trdelník! 🍩</p>
+                <button class="modal-btn" onclick="hideModal()">Awesome!</button>
             </div>
         </div>
     </div>
@@ -1117,26 +1226,21 @@
         }
 
         function updateStats() {
-            const totalElement = document.getElementById('totalActivities');
-            const completedElement = document.getElementById('completedActivities');
-            if (totalElement) totalElement.textContent = totalActivities;
-            if (completedElement) completedElement.textContent = completedActivities;
+            document.getElementById('totalActivities').textContent = totalActivities;
+            document.getElementById('completedActivities').textContent = completedActivities;
         }
 
         function updateProgress() {
             const percentage = totalActivities > 0 ? (completedActivities / totalActivities) * 100 : 0;
-            const progressFill = document.getElementById('progressFill');
-            if (progressFill) progressFill.style.width = percentage + '%';
+            document.getElementById('progressFill').style.width = percentage + '%';
         }
 
         function showModal() {
-            const modal = document.getElementById('congratsModal');
-            if (modal) modal.classList.add('show');
+            document.getElementById('congratsModal').classList.add('show');
         }
 
         function hideModal() {
-            const modal = document.getElementById('congratsModal');
-            if (modal) modal.classList.remove('show');
+            document.getElementById('congratsModal').classList.remove('show');
         }
 
         function countTotalActivities() {
@@ -1159,9 +1263,43 @@
                 });
             });
 
-            // Save progress (in memory only - localStorage not available in Claude.ai)
-            // Progress is maintained during session only
+            // Save progress (wrapped in try-catch for environment compatibility)
+            try {
+                const savedProgress = localStorage.getItem('praagTripProgress');
+                if (savedProgress) {
+                    const progress = JSON.parse(savedProgress);
+                    progress.forEach((isChecked, index) => {
+                        const checkbox = document.querySelectorAll('.activity-checkbox')[index];
+                        if (checkbox && isChecked) {
+                            checkbox.classList.add('checked');
+                            completedActivities++;
+                        }
+                    });
+                    updateStats();
+                    updateProgress();
+                }
+            } catch (e) {
+                // localStorage not available, continue without saving
+            }
         });
+
+        // Save progress when activity is toggled
+        function saveProgress() {
+            try {
+                const checkboxes = document.querySelectorAll('.activity-checkbox');
+                const progress = Array.from(checkboxes).map(cb => cb.classList.contains('checked'));
+                localStorage.setItem('praagTripProgress', JSON.stringify(progress));
+            } catch (e) {
+                // localStorage not available, continue without saving
+            }
+        }
+
+        // Override toggleActivity to include saving
+        const originalToggle = toggleActivity;
+        toggleActivity = function(checkbox) {
+            originalToggle(checkbox);
+            saveProgress();
+        }
 
         // Add swipe gesture for mobile
         let startX = 0;
